@@ -1,0 +1,220 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9162,        212]
+NotebookOptionsPosition[      8828,        195]
+NotebookOutlinePosition[      9189,        211]
+CellTagsIndexPosition[      9146,        208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"KalaiRange", "[", "e_", "]"}], " ", ":=", " ", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tlist", " ", "=", " ", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{"True", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"nmin", " ", "=", " ", 
+         RowBox[{"2", "^", "e"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"nmax", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"2", "^", 
+           RowBox[{"(", 
+            RowBox[{"e", "+", "1"}], ")"}]}], "-", "1"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"tlist", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"nt", " ", "=", " ", "nmax"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{
+          RowBox[{"nt", " ", ">", "1"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"nt", " ", "=", " ", 
+            RowBox[{"RandomInteger", "[", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", " ", "nt"}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"temp", " ", "=", " ", 
+            RowBox[{"{", "nt", "}"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"PrimeQ", "[", "nt", "]"}], " ", "&&", " ", 
+              RowBox[{"nt", " ", ">", " ", "1"}]}], ",", " ", 
+             RowBox[{"tlist", " ", "=", " ", 
+              RowBox[{"Join", "[", 
+               RowBox[{"tlist", ",", " ", "temp"}], "]"}]}]}], "]"}], ";"}]}],
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"n", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+          RowBox[{"i", " ", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "tlist", "]"}]}], ",", " ", 
+          RowBox[{"i", "++"}], ",", " ", 
+          RowBox[{"n", "=", " ", 
+           RowBox[{"n", "*", 
+            RowBox[{"tlist", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"prob", " ", "=", " ", 
+         RowBox[{"n", "/", "nmax"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"rand", " ", "=", " ", 
+         RowBox[{"RandomReal", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"n", " ", "\[LessEqual]", " ", "nmax"}], " ", "&&", " ", 
+           RowBox[{"n", " ", "\[GreaterEqual]", " ", "nmin"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"prob", " ", "\[LessEqual]", " ", "rand"}], ",", " ", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+     ";", "\[IndentingNewLine]", " ", "tlist"}], " ", ")"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindPrime", "[", "e_", "]"}], " ", ":=", " ", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"r", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", " ", "[", 
+      RowBox[{
+       RowBox[{"r", " ", "\[LessEqual]", " ", "0"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"pfact", " ", "=", " ", 
+         RowBox[{"KalaiRange", "[", "e", "]"}]}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"num", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", " ", "=", " ", "1"}], ",", " ", 
+          RowBox[{"j", " ", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "pfact", "]"}]}], ",", " ", 
+          RowBox[{"j", "++"}], ",", " ", 
+          RowBox[{"num", " ", "=", " ", 
+           RowBox[{"num", "*", 
+            RowBox[{"pfact", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"num", " ", "=", " ", 
+         RowBox[{"num", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"PrimeQ", "[", "num", "]"}], ",", " ", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"r", " ", "=", " ", "num"}], ";", " ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{
+            "\"\<r\>\"", ",", " ", "e", ",", " ", "\"\<=\>\"", ",", " ", "r", 
+             ",", " ", 
+             "\"\< is prime and (p-1)'s prime factorization is: \>\"", ",", 
+             " ", "pfact"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+        ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     "r"}], " ", ")"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r400", " ", "=", " ", 
+    RowBox[{"FindPrime", "[", "400", "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6948158784606857`*^9, 3.694816041294804*^9}, {
+   3.694817313046832*^9, 3.6948175680803823`*^9}, {3.694817599169606*^9, 
+   3.694817691735034*^9}, {3.69481787144633*^9, 3.694817877806574*^9}, {
+   3.694817909419241*^9, 3.694817933920767*^9}, {3.6948179812844763`*^9, 
+   3.69481798259588*^9}, {3.6948180940288*^9, 3.6948181458753433`*^9}, {
+   3.694818294790292*^9, 3.694818302352255*^9}, {3.694818332607696*^9, 
+   3.694818332945139*^9}, {3.69481836530823*^9, 3.6948184159175587`*^9}, {
+   3.694818446108008*^9, 3.694818446685266*^9}, {3.694818507866475*^9, 
+   3.694818554228249*^9}, {3.694818655555092*^9, 3.6948187316399918`*^9}, {
+   3.694818795547127*^9, 3.6948188808399487`*^9}, {3.694818928474361*^9, 
+   3.694818940446126*^9}, {3.694819040323134*^9, 3.694819207425127*^9}, {
+   3.69481925461127*^9, 3.69481938451757*^9}, {3.6948194275423803`*^9, 
+   3.694819428237237*^9}, {3.694819464430162*^9, 3.694819595544611*^9}, {
+   3.694819627427512*^9, 3.694819771478758*^9}, {3.694819844897387*^9, 
+   3.694819849982498*^9}, {3.6948198888929663`*^9, 3.694819916307135*^9}, {
+   3.69481995348417*^9, 3.6948199842276497`*^9}, {3.694820027327249*^9, 
+   3.694820088000125*^9}, {3.694820153989438*^9, 3.694820201565996*^9}, {
+   3.6948202409492197`*^9, 3.6948203259058723`*^9}, {3.694820390083397*^9, 
+   3.694820395264063*^9}, {3.694820545902602*^9, 3.694820551372951*^9}, {
+   3.694820631110345*^9, 3.694820632417231*^9}, {3.6948246433861847`*^9, 
+   3.694824645679214*^9}, {3.6948246789435253`*^9, 3.694824685476997*^9}, {
+   3.6948248038756247`*^9, 3.694824806297431*^9}, {3.6948248416019373`*^9, 
+   3.694824845728106*^9}, 3.694824911088726*^9, {3.694824971098731*^9, 
+   3.694824991690887*^9}, {3.6948250504462957`*^9, 3.6948250667273903`*^9}, {
+   3.694825386375105*^9, 3.694825387278007*^9}, {3.694825457753912*^9, 
+   3.6948254684028797`*^9}, {3.694825897315963*^9, 3.694825898372596*^9}, {
+   3.6948264378352747`*^9, 3.694826438943913*^9}, {3.6948276977567587`*^9, 
+   3.694827701851342*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"r\"\>", "\[InvisibleSpace]", "400", 
+   "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
+   "30556033253459611195323811761059974284120704358888977073086294905615475941\
+28601036649265125264781465495037363273906025243", 
+   "\[InvisibleSpace]", "\<\" is prime and (p-1)'s prime factorization is: \"\
+\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "4443909266301560378287612140850180127663478379888889335904106240183405661\
+43813853765383708843919091", ",", "1561726781", ",", "1037901331", ",", "101",
+      ",", "7", ",", "3", ",", "2"}], "}"}]}],
+  SequenceForm[
+  "r", 400, "=", 
+   305560332534596111953238117610599742841207043588889770730862949056154759412\
+8601036649265125264781465495037363273906025243, 
+   " is prime and (p-1)'s prime factorization is: ", {
+   444390926630156037828761214085018012766347837988888933590410624018340566143\
+813853765383708843919091, 1561726781, 1037901331, 101, 7, 3, 2}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.694827928513441*^9}]
+}, Open  ]]
+},
+WindowSize->{815, 568},
+WindowMargins->{{Automatic, 125}, {-16, Automatic}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 7176, 147, 852, "Input"],
+Cell[7759, 171, 1053, 21, 101, "Print"]
+}, Open  ]]
+}
+]
+*)
+
